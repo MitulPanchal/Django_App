@@ -1,0 +1,11 @@
+{% if all_employee %}
+    <h1>Employee List:</h1>
+    <ul>
+        {% for employee in all_employee %}
+        <li><a href="/home/{{ employee.id }}/">{{ employee.Name }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <h3>No Data about Employee.</h3>
+{% endif %}

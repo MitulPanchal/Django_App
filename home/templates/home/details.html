@@ -1,0 +1,12 @@
+<h2 style="text-align: center;">Employee Details:</h2>
+
+<h2>Employee Name: <strong>{{ employee.Name }}</strong> </h2>
+
+<h3>Project Work:</h3>
+<ul>
+    {% for project in employee.project_set.all %}
+        <li><strong>Name: </strong>{{ project.projectName }}<br>
+            <strong>Type: </strong>{{ project.type }}<br><br>
+        </li>
+    {% endfor %}
+</ul>
