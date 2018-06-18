@@ -1,0 +1,45 @@
+.navbar{
+    border-radius: 0px;
+}
+
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background : white url("images/background.jpg");
+}
+
+.button-sub {
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.data{
+    font-size: 20px;
+}
+
+.error_detail{
+    font-size: 15px;
+    color: red;
+    margin-left: 20px;
+}
+
+.tag {
+    text-decoration: none;
+    color: inherit;
+}
+
+.another {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.label{
+    margin-left: 40px;
+    font-size: 20px;
+}

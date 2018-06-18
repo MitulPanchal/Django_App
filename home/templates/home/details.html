@@ -1,12 +1,15 @@
-<h2 style="text-align: center;">Employee Details:</h2>
+{% extends 'home/base.html' %}
 
-<h2>Employee Name: <strong>{{ employee.Name }}</strong> </h2>
+{% block title%}Employee Profile{% endblock %}
 
-<h3>Project Work:</h3>
-<ul>
+{% block body %}
+    <label class="another">Employee Name: {{ employee.Name }} </label><br>
+    <label class="another">Project Worked on:</label>
+
     {% for project in employee.project_set.all %}
-        <li><strong>Name: </strong>{{ project.projectName }}<br>
-            <strong>Type: </strong>{{ project.type }}<br><br>
-        </li>
+        <h6 class="another">Name: {{ project.projectName }}<br>
+            Type: {{ project.type }}<br>
+        </h6>
     {% endfor %}
-</ul>
+
+{% endblock %}

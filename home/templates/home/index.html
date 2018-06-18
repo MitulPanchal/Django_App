@@ -1,11 +1,18 @@
-{% if all_employee %}
-    <h1>Employee List:</h1>
-    <ul>
-        {% for employee in all_employee %}
-        <li><a href="/home/{{ employee.id }}/">{{ employee.Name }}</a></li>
-        {% endfor %}
-    </ul>
+{% extends 'home/base.html' %}
 
-{% else %}
-    <h3>No Data about Employee.</h3>
-{% endif %}
+{% block title%}Home{% endblock %}
+
+{% block body %}
+
+        <label class="another"><strong>Names of Employees: </strong></label>
+        <ol class="table">
+            {% for employee in all_employee %}
+            <!--Alternate  -->
+            <li class="data">
+                <a class="tag" href="{% url 'home:detail' employee.id %}"> {{ employee.Name }}</a>
+            </li>
+            {% endfor %}
+        </ol>
+
+{% endblock %}
+
