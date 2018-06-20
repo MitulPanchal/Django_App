@@ -38,25 +38,19 @@
                         <form action="{% url 'home:employee-delete' employee.id %}" method="post" style="display:inline">
                             {% csrf_token %}
                             <input type="hidden" name="employee_id" value="{{ employee.id }}">
-                            <button type="submit" class="btn btn-default">
+                            <button type="submit" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </form>
                         <!--Favourite Employee-->
-                        <form action="{% url 'home:favourite' employee.id %}" method="post" style="display:inline">
-                            {% csrf_token %}
-                            <input type="hidden" name="employee_id" value="{{ employee.id }}">
-                            <button type="submit" class="btn btn-default">
-                                {% if employee.is_favourite %}
+                        <a href="" class="btn btn-warning btn-favourite">
+                            {% if employee.is_favourite %}
                                 <span class="glyphicon glyphicon-star"></span>
                             {% else %}
                                 <span class="glyphicon glyphicon-star-empty"></span>
                             {% endif %}
-                            </button>
-                        </form>
-                        <!--
-                        <a href="" class="btn btn-default btn-favourite"></a>
-                        -->
+                        </a>
+
                     </div>
                 </div>
             {% endfor %}

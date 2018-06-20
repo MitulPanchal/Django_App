@@ -31,7 +31,15 @@
                 <button class="btn btn-primary">View All</button>&nbsp;&nbsp;
                 <a href="{% url 'home:project-add' employee.id%}">Add New Project</a>
                 <a href="{% url 'home:employee-update' employee.id %}">
-                    <button class="nav navbar-nav navbar-right btn btn-primary" style="margin-right: 20px;padding: 5px;">
+                    <!--Delete Employee Profile-->
+                        <form class="nav navbar-nav navbar-right" action="{% url 'home:employee-delete' employee.id %}" method="post" style="display:inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="employee_id" value="{{ employee.id }}">
+                            <button type="submit" class="btn btn-danger" style="margin-right: 20px;">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </form>
+                    <button class="nav navbar-nav navbar-right btn btn-primary" style="margin-right: 10px;padding: 6px;">
                         Edit Profile
                     </button>
                 </a>
