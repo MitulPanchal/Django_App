@@ -1,11 +1,13 @@
 # Django_Sample
 Simple Employee Website for learning Django.
 
-Login App:\n
+Login App:
+
 (1) index.html
 https://127.0.0.1:8000/login/
 
-Home App:\n
+Home App:
+
 (1) index.html
 https://127.0.0.1:8000/home/
 
