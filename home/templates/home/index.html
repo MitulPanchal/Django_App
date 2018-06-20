@@ -3,16 +3,64 @@
 {% block title%}Home{% endblock %}
 
 {% block body %}
+    <div class="container-fluid">
+        <div class="col-md-6 col-sm-12">
+            <h1>Employee Details:</h1>
+        </div>
+        <div class="col-md-6">
 
-        <label class="another"><strong>Names of Employees: </strong></label>
-        <ol class="table">
+        </div>
+    </div>
+    <div class="album-container container-fluid">
+        <div class="row">
             {% for employee in all_employee %}
-            <!--Alternate  -->
-            <li class="data">
-                <a class="tag" href="{% url 'home:detail' employee.id %}"> {{ employee.Name }}</a>
-            </li>
-            {% endfor %}
-        </ol>
+                <div class="col-sm-4 col-lg-2" style="margin-top: 10px;margin-bottom: 10px;">
+                    <!--Employee Profile Image-->
+                    <div class="thumbnail">
+                        <img src="{{ employee.Employee_image }}">
+                    </div>
 
+                    <div class="caption">
+                        <h4>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <strong>: {{ employee.Name }}</strong>
+                        </h4>
+                        <h4>
+                            <span class="glyphicon glyphicon-briefcase"></span>
+                            <strong>: {{ employee.Department }}</strong>
+                        </h4>
+                        <!--View Employee Profile-->
+                        <a class="custom" href="{% url 'home:detail' employee.id %}">
+                                <button class="btn btn-primary">View Data</button>
+                        </a>
+                        <!--Delete Employee Profile-->
+                        <form action="{% url 'home:employee-delete' employee.id %}" method="post" style="display:inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="employee_id" value="{{ employee.id }}">
+                            <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </form>
+                        <!--Favourite Employee-->
+                        <form action="{% url 'home:favourite' employee.id %}" method="post" style="display:inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="employee_id" value="{{ employee.id }}">
+                            <button type="submit" class="btn btn-default">
+                                {% if employee.is_favourite %}
+                                <span class="glyphicon glyphicon-star"></span>
+                            {% else %}
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            {% endif %}
+                            </button>
+                        </form>
+                        <!--
+                        <a href="" class="btn btn-default btn-favourite"></a>
+                        -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
 {% endblock %}
 

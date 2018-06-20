@@ -1,77 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title%}Employee Database{% endblock %}</title>
-    <!-- Load the path of static file-->
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy">
-    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
 
-        <!--Header-->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-traget="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'home:index' %}">Employee Database</a>
-        </div>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title%}Employee Database{% endblock %}</title>
 
-        <!--items-->
-        <div class="collpase navbar-collapse" id="topNavBar">
+        <!-- Load the path of static file-->
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy">
+        <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="{% url 'home:index' %}">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;
-                        Home
-                    </a>
-                </li>
+    </head>
 
-                <li class="">
-                    <a href="">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
-                        Profile
-                    </a>
-                </li>
-            </ul>
+    <body>
+        <nav class="navbar navbar-inverse" style="margin-bottom: 0px;">
+            <div class="container-fluid">
 
-            <form class="navbar-form navbar-left" role="search" method="get" action="#">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="q" value="">
+                <!--Header-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-traget="#topNavBar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="{% url 'home:index' %}">Employee Database</a>
                 </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                    <a href="{% url 'home:index' %}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
-                        Add Employee
-                    </a>
-                </li>
+                <!--items-->
+                <div class="collpase navbar-collapse" id="topNavBar">
 
-                <li class="">
-                    <a href="">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
-                        Logout
-                    </a>
-                </li>
-            </ul>
+                    <!--Left Navigation Button: Home and Profile-->
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="{% url 'home:index' %}">
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home
+                            </a>
+                        </li>
 
-        </div>
+                        <li class="">
+                            <a href="">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile
+                            </a>
+                        </li>
+                    </ul>
 
-    </div>
-</nav>
-{% block body %}
-{% endblock %}
-</body>
+                    <!--Search Employee in Navigation-->
+                    <form class="navbar-form navbar-left" role="search" method="get" action="#">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="q" value="">
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+
+                    <!--Right Navigation Button: Add Employee and Logout-->
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="">
+                            <a href="{% url 'home:employee-add' %}">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Employee
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="{% url 'login:index' %}">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        {% block body %}
+        {% endblock %}
+    </body>
+
 </html>

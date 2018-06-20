@@ -3,13 +3,96 @@
 {% block title%}Employee Profile{% endblock %}
 
 {% block body %}
-    <label class="another">Employee Name: {{ employee.Name }} </label><br>
-    <label class="another">Project Worked on:</label>
+    <div class="album-container container-fluid" style="margin-top: 20px;">
+        <div class="row">
+            <!--Employee Profile-->
+            <div class="col-sm-4 col-lg-2">
+                <div class="thumbnail">
+                    <img src="{{ employee.Employee_image }} " width="200">
+                </div>
 
-    {% for project in employee.project_set.all %}
-        <h6 class="another">Name: {{ project.projectName }}<br>
-            Type: {{ project.type }}<br>
-        </h6>
-    {% endfor %}
+                <div class="caption">
+                    <h4>
+                        <span class="glyphicon glyphicon-user"></span>
+                        <strong>: {{ employee.Name }}</strong>
+                    </h4>
+                    <h4>
+                        <span class="glyphicon glyphicon-briefcase"></span>
+                        <strong>: {{ employee.Department }}</strong>
+                    </h4>
+                    <h4>
+                        <span class="glyphicon glyphicon-phone"></span>
+                        <strong>: {{ employee.Contact }}</strong>
+                    </h4>
+                </div>
+            </div>
+            <!--Employee Project Details-->
+            <div class="col-sm-8 col-lg-10">
+                <button class="btn btn-primary">View All</button>&nbsp;&nbsp;
+                <a href="{% url 'home:project-add' employee.id%}">Add New Project</a>
+                <a href="{% url 'home:employee-update' employee.id %}">
+                    <button class="nav navbar-nav navbar-right btn btn-primary" style="margin-right: 20px;padding: 5px;">
+                        Edit Profile
+                    </button>
+                </a>
+
+                <br><br>
+                <div class="panel panel-default">
+                    <div class="panel-body" style="margin-left: 20px;margin-right: 20px;">
+
+                        <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <h1>Projects List:</h1>
+
+                                <!--Project List Title-->
+                                <div class="container-fluid" style="margin-top: 15px;">
+                                    <div class="col-md-3">
+                                        <label>Name:</label>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                            <label>Type:</label>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                            <label>Status</label>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                            <label>Actions</label>
+                                    </div>
+                                </div>
+
+                                <!--Particular Project Detail-->
+                                <div class="container-fluid divider">
+                                    {% for project in employee.project_set.all %}
+                                        <div class="col-md-3">
+                                            <label style="margin-top: 15px;">{{ project.projectName }}</label>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label style="margin-top: 15px;">{{ project.type }}</label>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label style="margin-top: 15px;">-</label>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label style="margin-top: 15px;">-</label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
