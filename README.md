@@ -4,15 +4,15 @@ Simple Employee Website for learning Django.
 Login App:
 
 (1) index.html
-https://127.0.0.1:8000/login/
+http://127.0.0.1:8000/login/
 
 Home App:
 
 (1) index.html
-https://127.0.0.1:8000/home/
+http://127.0.0.1:8000/home/
 
 (2) detail.html
-https://127.0.0.1/1/
+http://127.0.0.1/1/
 
 (3) Add Employee
 http://127.0.0.1:8000/home/employee/add/
