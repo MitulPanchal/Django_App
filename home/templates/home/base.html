@@ -35,14 +35,14 @@
 
                     <!--Left Navigation Button: Home and Profile-->
                     <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li class="{% block home %}{% endblock %}">
                             <a href="{% url 'home:index' %}">
                                 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home
                             </a>
                         </li>
 
-                        <li class="">
-                            <a href="">
+                        <li class="{% block profile %}{% endblock %}">
+                            <a href="{% url 'home:register' %}">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile
                             </a>
                         </li>
