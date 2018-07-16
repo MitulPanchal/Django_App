@@ -13,4 +13,3 @@ urlpatterns = [
     url(r'^employee/(?P<pk>[0-9]+)/delete/$', views.EmployeeDelete.as_view(), name='employee-delete'),
     url(r'^employee/(?P<pk>[0-9]+)/project/add$', views.ProjectCreate.as_view(), name='project-add'),
 ]
-

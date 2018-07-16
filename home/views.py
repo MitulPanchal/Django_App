@@ -63,5 +63,3 @@ class FavouriteView(generic.ListView):
 class ProjectCreate(CreateView):
     model = Project
     fields = [ 'projectName','type']
-
-
